@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/webview/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webview/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/webview/build" />
+      <excludeFolder url="file://$MODULE_DIR$/webview4/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webview4/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/webview4/build" />
+      <excludeFolder url="file://$MODULE_DIR$/webview5/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webview5/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/webview5/build" />
+      <excludeFolder url="file://$MODULE_DIR$/webviewchallenge/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webviewchallenge/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/webviewchallenge/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

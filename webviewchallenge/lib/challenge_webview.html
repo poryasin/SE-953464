@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cart</title>
+    <style>
+      body {
+        font-family: -apple-system, Arial, sans-serif;
+        padding: 16px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 8px 0 16px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .name {
+        font-size: 14px;
+      }
+      .btn {
+        padding: 6px 14px;
+        font-size: 12px;
+        border-radius: 15px;
+        border: 1px solid #d9d9d9;
+        background: #f4f4f4;
+        color: #008BFF;
+      }
+      .cartTitle {
+        font-weight: 700;
+        font-size: 18px;
+        margin-top: 18px;
+      }
+      .totalLabel {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #444;
+      }
+      .totalValue {
+        margin-top: 6px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Cart</h1>
+
+    <div class="row">
+      <div class="name">Apple - $30</div>
+      <button class="btn" onclick="addItem(30)">Add</button>
+    </div>
+
+    <div class="row">
+      <div class="name">Banana - $20</div>
+      <button class="btn" onclick="addItem(20)">Add</button>
+    </div>
+
+    <div class="row">
+      <div class="name">Orange - $25</div>
+      <button class="btn" onclick="addItem(25)">Add</button>
+    </div>
+
+    <div class="row">
+      <div class="name">Milk - $45</div>
+      <button class="btn" onclick="addItem(45)">Add</button>
+    </div>
+
+    <div class="row">
+      <div class="name">Bread - $35</div>
+      <button class="btn" onclick="addItem(35)">Add</button>
+    </div>
+
+    <div class="cartTitle">Cart</div>
+    <div class="totalLabel">Total:</div>
+    <div class="totalValue" id="total">$0</div>
+
+
+    <script>
+      var total = 0;
+
+      function renderTotal() {
+        document.getElementById("total").innerText = "$" + total;
+      }
+
+      function sendTotalToFlutter() {
+        if (window.FlutterChannel && window.FlutterChannel.postMessage) {
+          window.FlutterChannel.postMessage(String(total));
+        }
+      }
+
+      function addItem(price) {
+        total += price;
+        renderTotal();
+        sendTotalToFlutter();
+      }
+
+      function updateTotalFromFlutter(newTotal) {
+        var v = parseInt(newTotal);
+        if (isNaN(v)) v = 0;
+        total = v + 100;
+        renderTotal();
+        sendTotalToFlutter();
+        return total;
+      }
+
+      function showMessageFromFlutter(msg) {
+        document.getElementById("msg").innerText = "Flutter says:" + msg;
+        return "Message received: " + msg;
+      }
+
+      renderTotal();
+      sendTotalToFlutter();
+    </script>
+  </body>
+</html>
