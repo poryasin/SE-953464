@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
         itemCount: FavoriteProvider.maxItems,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text('Item #${index + 1}'),
+            title: Text('Item #${index}'),
             trailing: Consumer<FavoriteProvider>(
               builder: (context, fav, _) {
                 final isFav = fav.isFavorite(index);
